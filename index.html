@@ -12,16 +12,17 @@
     <body>
         <h1>Etch-A-Sketch</h1>
         <div class="header">
-            <h6>Select Grid Size</h6>
+            <h6>Select Grid Size (1-100)</h6>
             <button id="sizing" class="btn btn-outline-primary">Select</button>
         </div>
+        <p id="message"></p>
         <div class="flex-container">
 
         </div>
         <div class="footer">
-            <button class="btn btn-outline-dark">Black</button>
-            <button class="btn btn-outline-success">Random</button>
-            <button class="btn btn-outline-danger">Reset</button>
+            <button class="btn btn-outline-dark" onclick="setColor('black')">Black</button>
+            <button class="btn btn-outline-success" onclick="setColor('random')">Random</button>
+            <button class="btn btn-outline-danger" onclick="resetGrid()">Reset</button>
         </div>
     </body>
 </html>
