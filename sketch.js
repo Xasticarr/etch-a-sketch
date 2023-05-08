@@ -1,9 +1,22 @@
 let color = "black";
+let click = false;
 
 
 document.addEventListener("DOMContentLoaded", function(){
     createBoard(16);
     
+    document.querySelector("body").addEventListener("click", function(e){
+        if(e.target.tagName != "BUTTON"){
+            click = !click;
+            let draw = document.querySelector("#draw");
+            if(click){
+                draw.innerHTML = "Drawing is active! Click to Pause."
+            }
+            else{
+                draw.innerHTML = "Drawing is paused! Click to Unpause."
+            }
+        }
+    })
     let btn_sizing = document.querySelector("#sizing");
     btn_sizing.addEventListener("click", function(){
         let size = getGridSize();
@@ -43,13 +56,14 @@ function getGridSize(){
 }
 
 function colorDiv(){
-    if(color == "random"){
-        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+    if(click){
+        if(color == "random"){
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+        }
+        else{
+            this.style.backgroundColor = "black"
+        }
     }
-    else{
-        this.style.backgroundColor = "black"
-    }
-
 }
 
 function setColor(colorChoice){
